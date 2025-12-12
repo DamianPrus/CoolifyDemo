@@ -7,6 +7,7 @@ export async function GET() {
         'http://host.docker.internal:8123',
         'http://clickhouse-db:8123',
         'http://clickhouse:8123',
+        'http://clickhouse-database-jwcgk8sg40coss80wk8oc4cc:8123', // Actual Service Name
         process.env.CLICKHOUSE_HOST || 'env-var-missing'
     ];
 
