@@ -14,19 +14,35 @@ export default function Icon() {
             // ImageResponse JSX element
             <div
                 style={{
-                    fontSize: 24,
-                    background: 'radial-gradient(circle at center, #EAB308 0%, #000000 100%)',
+                    background: '#FACC15', // Nice vivid yellow (yellow-400)
                     width: '100%',
                     height: '100%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'white',
                     borderRadius: '20%',
-                    fontWeight: 900,
                 }}
             >
-                D
+                <div
+                    style={{
+                        fontSize: 26,
+                        fontWeight: 900,
+                        color: 'white',
+                        // Simulating text stroke/outline
+                        textShadow: `
+                            -2px -2px 0 #000,
+                             2px -2px 0 #000,
+                            -2px  2px 0 #000,
+                             2px  2px 0 #000,
+                            -2px  0   0 #000,
+                             2px  0   0 #000,
+                             0   -2px 0 #000,
+                             0    2px 0 #000
+                        `
+                    }}
+                >
+                    D
+                </div>
             </div>
         ),
         // ImageResponse options
