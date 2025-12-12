@@ -80,7 +80,7 @@ export default function Home() {
         {/* Header */}
         <div className="flex justify-between items-end border-b border-zinc-800 pb-4">
           <h1 className="text-3xl font-bold text-yellow-500 tracking-tighter">
-            Monkey Typer
+            Damian Typer
           </h1>
           <div className="flex gap-6 text-2xl font-bold">
             <div className="flex flex-col items-end">
@@ -266,8 +266,9 @@ export default function Home() {
         </div>
 
         {/* Footer / Instructions */}
-        <div className="text-center text-zinc-600 text-sm">
-          <p>Start typing to begin. Press <kbd className="bg-zinc-800 px-2 py-1 rounded text-zinc-400 font-sans">Space</kbd> to jump to the next word.</p>
+        <div className="text-center space-y-2">
+          <p className="text-zinc-600 text-sm">Start typing to begin. Press <kbd className="bg-zinc-800 px-2 py-1 rounded text-zinc-400 font-sans">Space</kbd> to jump to the next word.</p>
+          <p className="text-zinc-800 text-xs uppercase tracking-widest font-bold">Damian Best</p>
         </div>
       </div>
     </div>

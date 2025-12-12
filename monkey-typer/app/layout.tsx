@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Monkey Typer",
+  title: "Damian Typer",
   description: "Test your typing speed with random English words.",
 };
 
