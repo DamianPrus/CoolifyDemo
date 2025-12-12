@@ -7,7 +7,7 @@ type Score = {
   nickname: string;
   wpm: number;
   accuracy: number;
-  created_at: string;
+  created_at: number;
 };
 
 export default function Home() {
