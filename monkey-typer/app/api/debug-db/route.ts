@@ -1,13 +1,17 @@
 import { NextResponse } from 'next/server';
 
-export async function GET() {
+export async function GET(request: Request) {
+    const { searchParams } = new URL(request.url);
+    const customHost = searchParams.get('host');
+
     const hostsToTest = [
+        ...(customHost ? [customHost] : []),
         'http://10.0.0.1:8123',
         'http://172.17.0.1:8123',
         'http://host.docker.internal:8123',
         'http://clickhouse-db:8123',
         'http://clickhouse:8123',
-        'http://clickhouse-database-jwcgk8sg40coss80wk8oc4cc:8123', // Actual Service Name
+        'http://clickhouse-database-jwcgk8sg40coss80wk8oc4cc:8123',
         process.env.CLICKHOUSE_HOST || 'env-var-missing'
     ];
 
