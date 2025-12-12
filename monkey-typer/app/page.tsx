@@ -100,42 +100,42 @@ export default function Home() {
         <div className="relative group">
           {/* Overlay for finished state */}
           {gameState === "finished" && (
-            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-zinc-950/95 backdrop-blur-md rounded-xl border border-zinc-800 animate-in fade-in duration-300 p-8 overflow-y-auto">
-              <div className="w-full max-w-2xl space-y-8">
-                <div className="text-center space-y-2">
-                  <h2 className="text-4xl font-bold text-white">Time's Up!</h2>
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-zinc-950/95 backdrop-blur-md rounded-xl border border-zinc-800 animate-in fade-in duration-300 p-4">
+              <div className="w-full max-w-3xl space-y-4">
+                <div className="text-center space-y-1">
+                  <h2 className="text-3xl font-bold text-white">Time's Up!</h2>
                 </div>
 
-                <div className="grid grid-cols-4 gap-4 text-center bg-zinc-900 p-6 rounded-lg border border-zinc-800">
+                <div className="grid grid-cols-4 gap-2 text-center bg-zinc-900 p-3 rounded-lg border border-zinc-800">
                   <div>
-                    <div className="text-zinc-500 text-sm uppercase tracking-wider">WPM</div>
-                    <div className="text-4xl font-bold text-yellow-500">{wpm}</div>
+                    <div className="text-zinc-500 text-xs uppercase tracking-wider">WPM</div>
+                    <div className="text-3xl font-bold text-yellow-500">{wpm}</div>
                   </div>
                   <div>
-                    <div className="text-zinc-500 text-sm uppercase tracking-wider">Accuracy</div>
-                    <div className="text-4xl font-bold text-white">
+                    <div className="text-zinc-500 text-xs uppercase tracking-wider">Accuracy</div>
+                    <div className="text-3xl font-bold text-white">
                       {correctWords + mistakes > 0
                         ? Math.round((correctWords / (correctWords + mistakes)) * 100)
                         : 0}%
                     </div>
                   </div>
                   <div>
-                    <div className="text-zinc-500 text-sm uppercase tracking-wider">Correct</div>
-                    <div className="text-2xl font-bold text-green-500">{correctWords}</div>
+                    <div className="text-zinc-500 text-xs uppercase tracking-wider">Correct</div>
+                    <div className="text-xl font-bold text-green-500">{correctWords}</div>
                   </div>
                   <div>
-                    <div className="text-zinc-500 text-sm uppercase tracking-wider">Mistakes</div>
-                    <div className="text-2xl font-bold text-red-500">{mistakes}</div>
+                    <div className="text-zinc-500 text-xs uppercase tracking-wider">Mistakes</div>
+                    <div className="text-xl font-bold text-red-500">{mistakes}</div>
                   </div>
                 </div>
 
                 {/* Submission Form */}
                 {!hasSubmitted ? (
-                  <div className="flex gap-4 items-center justify-center bg-zinc-900/50 p-4 rounded-lg border border-zinc-800/50">
+                  <div className="flex gap-4 items-center justify-center bg-zinc-900/50 p-3 rounded-lg border border-zinc-800/50">
                     <input
                       type="text"
                       placeholder="Enter Nickname"
-                      className="bg-zinc-950 border border-zinc-700 rounded px-4 py-2 w-64 text-white focus:outline-none focus:border-yellow-500"
+                      className="bg-zinc-950 border border-zinc-700 rounded px-3 py-1.5 w-56 text-white focus:outline-none focus:border-yellow-500"
                       value={nickname}
                       onChange={(e) => setNickname(e.target.value)}
                       maxLength={20}
@@ -143,23 +143,23 @@ export default function Home() {
                     <button
                       onClick={submitScore}
                       disabled={isSubmitting || !nickname.trim()}
-                      className="px-6 py-2 bg-yellow-500 hover:bg-yellow-400 disabled:opacity-50 disabled:cursor-not-allowed text-black font-bold rounded transition-colors"
+                      className="px-4 py-1.5 bg-yellow-500 hover:bg-yellow-400 disabled:opacity-50 disabled:cursor-not-allowed text-black font-bold rounded transition-colors text-sm"
                     >
-                      {isSubmitting ? 'Submitting...' : 'Submit Score'}
+                      {isSubmitting ? '...' : 'Submit'}
                     </button>
                     <button
                       onClick={resetGame}
-                      className="px-6 py-2 bg-zinc-800 hover:bg-zinc-700 text-white font-bold rounded transition-colors"
+                      className="px-4 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-white font-bold rounded transition-colors text-sm"
                     >
-                      Try Again
+                      Retry
                     </button>
                   </div>
                 ) : (
-                  <div className="text-center">
-                    <p className="text-green-500 font-bold mb-4">Score Submitted!</p>
+                  <div className="text-center flex items-center justify-center gap-4">
+                    <span className="text-green-500 font-bold text-sm">Score Submitted!</span>
                     <button
                       onClick={resetGame}
-                      className="px-8 py-3 bg-yellow-500 hover:bg-yellow-400 text-black font-bold rounded-full transition-colors"
+                      className="px-6 py-2 bg-yellow-500 hover:bg-yellow-400 text-black font-bold rounded-full transition-colors text-sm"
                     >
                       Play Again
                     </button>
@@ -167,33 +167,33 @@ export default function Home() {
                 )}
 
                 {/* Leaderboard */}
-                <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-zinc-400 uppercase tracking-widest text-center">Top 10 Leaderboard</h3>
+                <div className="space-y-2">
+                  <h3 className="text-sm font-bold text-zinc-400 uppercase tracking-widest text-center">Top 10 Leaderboard</h3>
                   <div className="bg-zinc-900 rounded-lg border border-zinc-800 overflow-hidden">
-                    <table className="w-full text-left text-sm">
+                    <table className="w-full text-left text-xs">
                       <thead className="bg-zinc-950 text-zinc-500 uppercase tracking-wider">
                         <tr>
-                          <th className="px-6 py-3 font-medium">Rank</th>
-                          <th className="px-6 py-3 font-medium">Player</th>
-                          <th className="px-6 py-3 font-medium text-right">WPM</th>
-                          <th className="px-6 py-3 font-medium text-right">Accuracy</th>
-                          <th className="px-6 py-3 font-medium text-right">Date</th>
+                          <th className="px-4 py-2 font-medium">Rank</th>
+                          <th className="px-4 py-2 font-medium">Player</th>
+                          <th className="px-4 py-2 font-medium text-right">WPM</th>
+                          <th className="px-4 py-2 font-medium text-right">Acc</th>
+                          <th className="px-4 py-2 font-medium text-right">Date</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-zinc-800">
                         {leaderboard.length === 0 ? (
                           <tr>
-                            <td colSpan={5} className="px-6 py-8 text-center text-zinc-600">No scores yet. Be the first!</td>
+                            <td colSpan={5} className="px-4 py-6 text-center text-zinc-600">No scores yet.</td>
                           </tr>
                         ) : (
                           leaderboard.map((score, i) => (
                             <tr key={i} className="hover:bg-zinc-800/50 transition-colors">
-                              <td className="px-6 py-3 text-zinc-500">#{i + 1}</td>
-                              <td className="px-6 py-3 font-medium text-white">{score.nickname}</td>
-                              <td className="px-6 py-3 text-right text-yellow-500 font-bold">{score.wpm}</td>
-                              <td className="px-6 py-3 text-right text-zinc-400">{Math.round(score.accuracy)}%</td>
-                              <td className="px-6 py-3 text-right text-zinc-600">
-                                {new Date(score.created_at).toLocaleDateString()}
+                              <td className="px-4 py-1.5 text-zinc-500">#{i + 1}</td>
+                              <td className="px-4 py-1.5 font-medium text-white">{score.nickname}</td>
+                              <td className="px-4 py-1.5 text-right text-yellow-500 font-bold">{score.wpm}</td>
+                              <td className="px-4 py-1.5 text-right text-zinc-400">{Math.round(score.accuracy)}%</td>
+                              <td className="px-4 py-1.5 text-right text-zinc-600">
+                                {new Date(score.created_at * 1000).toLocaleDateString()}
                               </td>
                             </tr>
                           ))
@@ -223,10 +223,10 @@ export default function Home() {
                 <span
                   key={idx}
                   className={`relative px-1 rounded transition-colors duration-100 ${isCurrent
-                      ? "text-yellow-500 bg-yellow-500/10"
-                      : isPast
-                        ? "text-zinc-700 decoration-zinc-800"
-                        : "text-zinc-500"
+                    ? "text-yellow-500 bg-yellow-500/10"
+                    : isPast
+                      ? "text-zinc-700 decoration-zinc-800"
+                      : "text-zinc-500"
                     }`}
                 >
                   {/* Cursor for current word */}
