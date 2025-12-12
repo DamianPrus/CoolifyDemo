@@ -14,7 +14,7 @@ export default function Icon() {
             // ImageResponse JSX element
             <div
                 style={{
-                    background: '#fab115ff', // Nice vivid yellow (yellow-400)
+                    background: '#fabd15ff', // Nice vivid yellow (yellow-400)
                     width: '100%',
                     height: '100%',
                     display: 'flex',
