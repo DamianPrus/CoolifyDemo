@@ -19,7 +19,7 @@ export async function POST(request: Request) {
                     nickname,
                     wpm,
                     accuracy,
-                    created_at: new Date() // Sending Date object, client handles formatting if needed or auto-converts
+                    created_at: Math.floor(Date.now() / 1000) // Send Unix timestamp (seconds) for DateTime
                 },
             ],
             format: 'JSONEachRow',
